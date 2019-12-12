@@ -34,19 +34,20 @@ var searchArray = function(array, target) {
 // 从左下角开始找O(1)
 var searchArrayByLeft = function(array, target) {
     let column= 0;
-    let flag = false;
     let row = array.length - 1
-    while(column < array[0].length && row >= 0) {
-        if(array[row][column] > target) {
-            row--;
+    let maxColumn = array[0] ? array[0].length - 1 : 0;
+    while(column <= maxColumn && row >= 0) {
+        let x = array[row][column];
+        if(x > target) {
+            row = row -1;
         }
-        if(array[row][column] < target) {
-            column++;
+        if(x < target) {
+            column = column + 1;
         }
-        if(array[row][column] === target) {
-            flag = true
+        if(x === target) {
             return true;
         }
     }
-    return flag;
+    return false;
 }
+searchArrayByLeft([], 0)
