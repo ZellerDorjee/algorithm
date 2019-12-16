@@ -21,7 +21,6 @@ var replaceSpaces = function(str) {
     for(let i=0;i<str.length;i++){
         newStr += str[i] === ' ' ? '%20' : str[i]
     }
-    console.log(newStr)
     return newStr
 };
 
