@@ -11,6 +11,18 @@
  * @return {string}
  */
 // 用正则
-var replaceSpaces = function(str) {
+var replaceSpacesByReg = function(str) {
     return str.replace(/\s+/g, '%20')
 };
+
+// 直接替换
+var replaceSpaces = function(str) {
+    let newStr = ''
+    for(let i=0;i<str.length;i++){
+        newStr += str[i] === ' ' ? '%20' : str[i]
+    }
+    console.log(newStr)
+    return newStr
+};
+
+replaceSpaces('We are happy')
